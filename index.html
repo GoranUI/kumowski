@@ -1,14 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Screen Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script type="text/javascript" src="/main.js"></script>
+  <div class="container">
+    <form id="multi-screen-form" action="submission-endpoint" method="POST">
+      <div class="screen" id="welcome-screen">
+        <h2>Welcome to the Kumowski Form</h2>
+        <button type="button" onclick="nextScreen()">Start</button>
+      </div>
+      <div class="screen" id="name-screen">
+        <h2>Unesi svoje ime i prezime</h2>
+        <p>Da je Kum biti lako - Kum bi bio svako.</p>
+        <input type="text" name="name" placeholder="Type your answer here.." required>
+        <button type="button" onclick="nextScreen()">Continue</button>
+      </div>
+      <div class="screen" id="linkedin-screen">
+        <h2>Unesi link svog LinkedIn profila</h2>
+        <p>Da te Kumowski verifikuje</p>
+        <input type="text" name="linkedin" placeholder="https://linkedin.com/ln/..." required>
+        <button type="button" onclick="nextScreen()">Continue</button>
+      </div>
+      <div class="screen" id="kuma-name-screen">
+        <h2>Dodaj ime i prezime svog Kuma</h2>
+        <input type="text" name="kuma_name" placeholder="Type your answer here..." required>
+        <button type="button" onclick="nextScreen()">Continue</button>
+      </div>
+      <div class="screen" id="kuma-linkedin-screen">
+        <h2>Unesi Kumov LinkedIn</h2>
+        <p>Ne brini - daćemo mu ponudu koju neće moći da odbije.</p>
+        <input type="text" name="kuma_linkedin" placeholder="https://linkedin.com/ln/..." required>
+        <button type="button" onclick="nextScreen()">Continue</button>
+      </div>
+      <div class="screen" id="question-screen">
+        <h2>Odgovori tačno na sledeće pitanje.</h2>
+        <p>Kum nije... ?</p>
+        <label><input type="radio" name="kum_nije" value="spajalica" required> Spajalica</label><br>
+        <label><input type="radio" name="kum_nije" value="dugme" required> Dugme</label><br>
+        <label><input type="radio" name="kum_nije" value="piksla" required> Piksla</label><br>
+        <button type="button" onclick="submitForm()">Završi</button>
+      </div>
+      <div class="screen" id="end-screen">
+        <h2>Hvala, Kume!</h2>
+        <p>Kontaktiraćemo te kada napravimo nešto sa ovim :)</p>
+      </div>
+    </form>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
